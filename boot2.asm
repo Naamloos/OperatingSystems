@@ -9,10 +9,10 @@ boot:
         or al, al       ;|
         jz .input        ;| jump to input if al is zero
 
-        cmp al, 49      ;|
+        cmp ah, 49      ;|
         je .opt1        ;|
 
-        cmp al, 50
+        cmp ah, 50
         je .opt2
 
         int 0x10
@@ -26,7 +26,7 @@ boot:
         db "2 breh",13,10
         jmp .loop
 
-    .input:              ;|
+    .input:             ;|
         mov ah, 00h     ;|
         int 16h         ;| Getting input uhh
         jmp .loop       ; Jumping back to loop
