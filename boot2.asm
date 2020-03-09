@@ -7,7 +7,7 @@ boot:
     .loop:              ; this is our loop
         lodsb
         or al, al       ;|
-        jz input        ;| jump to input if al is zero
+        jz .input        ;| jump to input if al is zero
 
         cmp al, 49      ;|
         je .opt1        ;|
