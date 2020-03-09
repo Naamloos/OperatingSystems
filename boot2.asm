@@ -3,7 +3,7 @@ org 0x7c00
 boot:
 	mov si, hello       ; show welcome msg
 	mov ah,0x0e         ; Write character in titty mode
-
+    jmp print
 
 print:
     .loop:              ; this is our loop
@@ -29,14 +29,11 @@ inputcheck:
 
     .opt1:
         mov si, opt1       ; show msg
-	    mov ah,0x0e         ; Write character in titty mode
+	    ;mov ah,0x0e         ; Write character in titty mode
 
     .opt2:
         mov si, opt2        ; show msg
-	    mov ah,0x0e         ; Write character in titty mode
-
-    .opt3:
-        jmp halt
+	    ;mov ah,0x0e         ; Write character in titty mode
 
     jmp print
 
@@ -45,13 +42,13 @@ halt:               ;|
 	hlt             ;| Halting program
 
 hello: 
-	db "Welcome to XxX_0per4ting_syst3m_XxX",13,10,0
+	db "Welcome to XxX_0per4ting_syst3m_XxX press 1 or 2",13,10,0
 
 opt1:
-    db "you press 1",0
+    db "you press 1",13,10,0
 
 opt2:
-    db "2 breh",0
+    db "2 breh",13,10,0
 
 times 510 - ($-$$) db 0
 dw 0xaa55
