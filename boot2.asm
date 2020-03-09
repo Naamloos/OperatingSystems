@@ -13,7 +13,7 @@ halt:
 	cli
 	hlt
 hello: 
-	db "Welcome to TempleOS",0
+	db "Welcome to TempleOS",13,10
 
 times 510 - ($-$$) db 0
 dw 0xaa55
