@@ -19,11 +19,11 @@ boot:
         jmp .loop
 
     .opt1:
-        db "you press 1",13,10
+        db "you press 1",13,10,0
         jmp .loop
     
     .opt2:
-        db "2 breh",13,10
+        db "2 breh",13,10,0
         jmp .loop
 
     .input:             ;|
@@ -36,7 +36,7 @@ halt:               ;|
 	hlt             ;| Halting program
 
 hello: 
-	db "Welcome to TempleOS",13,10
+	db "Welcome to TempleOS",13,10,0
 
 times 510 - ($-$$) db 0
 dw 0xaa55
