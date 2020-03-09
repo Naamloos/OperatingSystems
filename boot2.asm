@@ -6,7 +6,6 @@ boot:
 .loop:
 	lodsb
 	or al, al
-    mov si, hello
 	jz halt
 	int 0x10
 	jmp .loop
