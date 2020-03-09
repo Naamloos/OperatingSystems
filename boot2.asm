@@ -21,17 +21,9 @@ input:             ;|
 
 inputcheck:
     cmp al, 49      
-    je .opt1        
+    je opt1        
     cmp al, 50
-    je .opt2
-
-    .opt1:
-        mov si, opt1       ; show msg
-	    ;mov ah,0x0e         ; Write character in titty mode
-
-    .opt2:
-        mov si, opt2        ; show msg
-	    ;mov ah,0x0e         ; Write character in titty mode
+    je opt2
 
     jmp print
 
