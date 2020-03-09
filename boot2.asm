@@ -18,11 +18,11 @@ boot:
 	jmp .loop
 
 .opt1:
-    db "you press 1"
+    db "you press 1",13,10
     jmp .loop
  
 .opt2:
-    db "2 breh"
+    db "2 breh",13,10
     jmp .loop
 
 halt:
