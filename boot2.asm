@@ -26,10 +26,10 @@ boot:
         db "2 breh",13,10
         jmp .loop
 
-input:              ;|
-    mov ah, 00h     ;|
-    int 16h         ;| Getting input uhh
-    jmp .loop       ; Jumping back to loop
+    .input:              ;|
+        mov ah, 00h     ;|
+        int 16h         ;| Getting input uhh
+        jmp .loop       ; Jumping back to loop
 
 halt:               ;|
 	cli             ;|
