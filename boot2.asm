@@ -4,31 +4,41 @@ boot:
 	mov si, hello       ; show welcome msg
 	mov ah,0x0e         ; Write character in titty mode
 
+
+print:
     .loop:              ; this is our loop
         lodsb
-        cmp al, '1'      
-        je .opt1        
-        cmp al, '2'
-        je .opt2
-
+        
         or al, al       ;|
         jz input        ;| jump to input if al is zero
         int 0x10
         jmp .loop
 
+input:             ;|
+    mov ah, 00h     ;|
+    int 16h         ;| Getting input uhh
+    jmp inputcheck
+
+inputcheck:
+    cmp al, 49      
+    je .opt1        
+    cmp al, 50
+    je .opt2
+    cmp al, 51
+    je .opt3
+
     .opt1:
         mov si, opt1       ; show msg
 	    mov ah,0x0e         ; Write character in titty mode
-        int 0x10
 
     .opt2:
         mov si, opt2        ; show msg
 	    mov ah,0x0e         ; Write character in titty mode
-        int 0x10
 
-input:             ;|
-    mov ah, 00h     ;|
-    int 16h         ;| Getting input uhh
+    .opt3:
+        jmp halt
+
+    jmp print
 
 halt:               ;|
 	cli             ;|
