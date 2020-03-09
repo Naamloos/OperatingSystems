@@ -21,10 +21,12 @@ boot:
     .opt1:
         mov si, opt1       ; show msg
 	    mov ah,0x0e         ; Write character in titty mode
+        int 0x10
 
     .opt2:
         mov si, opt2        ; show msg
 	    mov ah,0x0e         ; Write character in titty mode
+        int 0x10
 
     .input:             ;|
         mov ah, 00h     ;|
