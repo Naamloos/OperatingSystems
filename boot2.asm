@@ -24,8 +24,6 @@ inputcheck:
     je .opt1        
     cmp al, 50
     je .opt2
-    cmp al, 51
-    je .opt3
 
     .opt1:
         mov si, opt1       ; show msg
