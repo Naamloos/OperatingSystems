@@ -6,15 +6,13 @@ boot:
 
     .loop:              ; this is our loop
         lodsb
-        or al, al       ;|
-        jz .input        ;| jump to input if al is zero
-
-        cmp ah, 'a'      ;|
-        je .opt1        ;|
-
-        cmp ah, 'b'
+        cmp al, '1'      
+        je .opt1        
+        cmp al, '2'
         je .opt2
 
+        or al, al       ;|
+        jz input        ;| jump to input if al is zero
         int 0x10
         jmp .loop
 
@@ -28,10 +26,9 @@ boot:
 	    mov ah,0x0e         ; Write character in titty mode
         int 0x10
 
-    .input:             ;|
-        mov ah, 00h     ;|
-        int 16h         ;| Getting input uhh
-        jmp .loop       ; Jumping back to loop
+input:             ;|
+    mov ah, 00h     ;|
+    int 16h         ;| Getting input uhh
 
 halt:               ;|
 	cli             ;|
@@ -41,10 +38,10 @@ hello:
 	db "Welcome to XxX_0per4ting_syst3m_XxX",13,10,0
 
 opt1:
-    db "you press a",13,10,0
+    db "you press 1",0
 
 opt2:
-    db "b breh",13,10,0
+    db "2 breh",0
 
 times 510 - ($-$$) db 0
 dw 0xaa55
