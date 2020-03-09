@@ -9,22 +9,22 @@ boot:
         or al, al       ;|
         jz .input        ;| jump to input if al is zero
 
-        cmp ah, 49      ;|
+        cmp ah, 'a'      ;|
         je .opt1        ;|
 
-        cmp ah, 50
+        cmp ah, 'b'
         je .opt2
 
         int 0x10
         jmp .loop
 
     .opt1:
-        db "you press 1",13,10,0
-        jmp .loop
-    
+        mov si, opt1       ; show msg
+	    mov ah,0x0e         ; Write character in titty mode
+
     .opt2:
-        db "2 breh",13,10,0
-        jmp .loop
+        mov si, opt2        ; show msg
+	    mov ah,0x0e         ; Write character in titty mode
 
     .input:             ;|
         mov ah, 00h     ;|
@@ -36,7 +36,13 @@ halt:               ;|
 	hlt             ;| Halting program
 
 hello: 
-	db "Welcome to TempleOS",13,10,0
+	db "Welcome to XxX_0per4ting_syst3m_XxX",13,10,0
+
+opt1:
+    db "you press a",13,10,0
+
+opt2:
+    db "b breh",13,10,0
 
 times 510 - ($-$$) db 0
 dw 0xaa55
