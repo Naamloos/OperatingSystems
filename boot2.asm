@@ -25,7 +25,7 @@ inputcheck:
     cmp al, 50
     je opt2
 
-    jmp print
+    jmp input
 
 halt:               ;|
 	cli             ;|
