@@ -35,10 +35,20 @@ hello:
 	db "Welcome to XxX_0per4ting_syst3m_XxX press 1 or 2",13,10,0
 
 opt1:
-    db "you press 1",13,10,0
+    mov si, pressed1
+    mov ah,0x0e
+    jmp print
+
+pressed1:
+    db "U have press the button 1, son",13,10,0
 
 opt2:
-    db "2 breh",13,10,0
+    mov si, pressed2
+    mov ah,0x0e
+    jmp print
+
+pressed2:
+    db "You pressed 2, baby boo",13,10,0
 
 times 510 - ($-$$) db 0
 dw 0xaa55
