@@ -28,8 +28,8 @@ inputcheck:
     jmp input
 
 halt:               ;|
-	cli             ;|
-	hlt             ;| Halting program
+	cli             ;| 
+	hlt             ;| Halting program 
 
 hello: 
 	db "Welcome to XxX_0per4ting_syst3m_XxX press 1 or 2",13,10,0
