@@ -9,10 +9,10 @@ boot:
     int 0x10
 
     lgdt [gdt_pointer]
-    move eax, cr0
+    mov eax, cr0
     or eax, 0x1
     mov cr0, eax
-    jmp CODE_SEG: boot2
+    jmp CODE_SEG: boot3
 
 gdt_start:
     dq 0x0
