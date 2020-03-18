@@ -48,7 +48,7 @@ opt2:
     jmp print
 
 pressed2:
-    db "You pressed 2, baby boo",13,10,0,105
+    db "You pressed 2, baby boo",13,10,0
 
 times 510 - ($-$$) db 0
 dw 0xaa55

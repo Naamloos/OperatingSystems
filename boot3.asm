@@ -1,0 +1,6 @@
+bits 16
+org 0x7c00
+
+boot:
+    mov ax, 0x2401
+    int 0x15
