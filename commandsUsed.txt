@@ -1,0 +1,3 @@
+x86_64-linux-gnu-ld
+nasm -f elf32 boot5.asm -o boot5.o   
+g++ -m32 kmain.cpp boot5.o -o kernel.bin -nostdlib -ffreestanding -std=c++11 -mno-red-zone -fno-exceptions -nostdlib -fno-rtti -Wall -Wextra -Werror -T linker.ld -fno-pie
