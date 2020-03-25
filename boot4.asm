@@ -3,7 +3,6 @@ mov al, 1      ;sectors to read
 mov ch, 0      ;cylinder idx
 mov dh, 0      ;head idx
 mov cl, 2      ;sector idx
-mov dl, [disk] ;disk idx
 mov bx, copy_target;target pointer
 int 0x13
 
