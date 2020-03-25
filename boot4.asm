@@ -1,11 +1,3 @@
-mov ah, 0x2    ;read sectors
-mov al, 1      ;sectors to read
-mov ch, 0      ;cylinder idx
-mov dh, 0      ;head idx
-mov cl, 2      ;sector idx
-mov bx, copy_target;target pointer
-int 0x13
-
 times 510 - ($-$$) db 0
 dw 0xaa55
 copy_target:
